@@ -1,0 +1,90 @@
+.detalhes-card {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border-radius: 30px;
+    margin-block: 30px;
+    margin-inline: auto;
+    text-align: center;
+    gap: 10px;
+    background-color: #FAF1E4;
+    padding: 30px;
+}
+
+.referencia {
+    line-height: 25px;
+    color: white;
+    background-color: #618264;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    max-width: 70%;
+    margin-inline: auto;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.referencia h2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.referencia strong {
+    font-size: 34px;
+}
+
+.detalhes-card p {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+
+.botao-home {
+    top: 10%;
+    left: 30px;
+    position: fixed;
+    color: #618264;
+    padding: 10px 14px 8px 10px;
+    border-radius: 15px;
+    border: 1px solid #618264;
+}
+
+.botoes-container {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    background-color: #ffffff;
+    max-width: 30px;
+    align-items: center;
+    right: 30px;
+    bottom: 30px;
+    border-radius: 20px;
+}
+
+.botoes-container button {
+    min-width: 0px;
+    padding: 10px;
+}
+
+.validar-delete {
+    padding: 20px 20px;
+    background-color: #ffffff;
+    display: grid;
+    gap: 50px;
+    margin-top: 22%;
+    margin-inline: auto;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.validar-delete h4 {
+    font-size: 18px;
+}
+
+.validar-delete button {
+    padding: 10px;
+    width: 10px;
+    justify-self: end;
+}

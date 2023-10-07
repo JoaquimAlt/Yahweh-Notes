@@ -1,0 +1,38 @@
+header{
+    max-width: 100%;
+    background-color: #618264;
+    display: block;
+}
+
+.navbar {
+    display: flex;
+    max-width: 95%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+    margin-inline: auto;
+}
+
+.navbar a{
+    font-weight: 700;
+    color: white;
+}
+
+.navbar .botao-nav-form {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.botao-nav-form {
+    padding: 10px;
+    outline: 1px solid white;
+    border-radius: 10px;
+}
+
+.botao-nav-form:hover, .botao-nav-form:hover a {
+    background-color: white;
+    color: #618264;
+    cursor: pointer;
+}

@@ -1,0 +1,73 @@
+.cardVersiculos {
+    height: 320px;
+    max-width: 250px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    gap: 10px;
+    background-color: white;
+    filter: drop-shadow(0px 4px 19px rgba(0, 0, 0, 0.10));
+    border-radius: 20px;
+}
+
+.cardVersiculos .box-2 strong {
+    font-weight: 700;
+    font-size: 36px;
+    max-width: 80%;
+    margin-inline: auto;
+}
+
+.cardVersiculos h3 {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box-1 {
+    max-width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    padding: 18px 18px 30px 18px;
+    background-color: #618264;
+    color: white;
+}
+
+.box-1 h4 {
+    text-align: center;
+    width: 80%;
+    font-size: 12px;
+    font-weight: 300px;
+    margin-inline: auto;
+}
+
+.livro {
+    color: white;
+    margin-top: -25px;
+    background-color: #79AC78;
+    padding: 7px 10px;
+    border-radius: 20px;
+}
+
+.box-2 {
+    text-align: center;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-inline: auto;
+}
+
+.button-card {
+    bottom: 15px;
+    position: absolute;
+    outline: 1px solid #79AC78;
+    border-radius: 30px;
+    padding: 10px;
+    color: #79AC78;
+}
+
+.button-card:hover {
+    background-color: #79AC78;
+    color: #ffffff;
+}

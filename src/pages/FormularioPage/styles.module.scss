@@ -1,0 +1,60 @@
+.form-page {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 40px;
+    margin-inline: auto;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.anotacoes-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 30px;
+}
+
+.anotacoes-form .botao {
+    margin-inline: auto;
+    width: 40%;
+}
+
+.anotacoes-form div {
+    background-color: #FAF1E4;
+}
+
+.sucesso {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    gap: 20px;
+    width: 30%;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #22b135;
+    color: white;
+}
+
+@media (min-width: 300px) and (max-width: 700px) {
+
+    .anotacoes-form {
+        width: 80%;
+    }
+
+    #anotacoes-input {
+        margin-inline: auto;
+        width: 100%;
+    }
+
+    .anotacoes-form .botao {
+        margin-inline: auto;
+        width: 80%;
+    }
+}

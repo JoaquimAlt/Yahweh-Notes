@@ -1,0 +1,35 @@
+.sem-cards {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    left: 50%;
+    align-items: center;
+    max-width: 20%;
+    padding: 40px;
+    background-color: white;
+    text-align: center;
+    gap: 30px;
+}
+
+.sem-cards svg {
+    width: 70%;
+    height: auto;
+}
+
+.botao {
+    padding: 10px 20px;
+    background-color: #618264;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.botao:hover, .botao-nav:hover a {
+    background-color: white;
+    outline: 1px solid #618264;
+    color: #618264;
+    cursor: pointer;
+}

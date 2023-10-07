@@ -6,8 +6,8 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
-import Modal from '@mui/material/Modal';
 import { useNavigate } from "react-router-dom";
+import ValidarModal from '../../components/ValidarModal';
 
 interface Props {
   anotacoes: IVersiculo[],
@@ -16,9 +16,13 @@ interface Props {
 
 function ExpansaoCardPage({ anotacoes, setAnotacoes }: Props) {
 
-  const [validarDelete, setvalidarDelete] = useState(false);
+  const [validarDelete, setValidarDelete] = useState(false);
 
-  const abrirPerguntaDelete = (af: boolean) => setvalidarDelete(af);
+  const abrirPerguntaDelete = (af: boolean) => setValidarDelete(af);
+
+  const [validarEdicao, setValidarEdicao] = useState(false);
+
+  const abrirPerguntaEdicao = (af: boolean) => setValidarEdicao(af);
 
   const { id } = useParams();
 
@@ -27,17 +31,25 @@ function ExpansaoCardPage({ anotacoes, setAnotacoes }: Props) {
     setAnotacoes(novaAnotacoes);
     localStorage.setItem('anotacoes', JSON.stringify(novaAnotacoes));
   }
-  
+
   const navigate = useNavigate();
   const irParaHome = () => {
     navigate("/");
   };
+
+  
 
   const cardSelecionado = anotacoes.find((anotacao) => anotacao.id === id);
 
   if (!cardSelecionado) {
     return <div>Card não encontrado.</div>;
   };
+  
+  const irEditarAnotacao = (id: string) => {
+    if (cardSelecionado !== undefined){
+    navigate(`/form/${id}`)
+    }
+  }
 
   return (
     <>
@@ -70,27 +82,33 @@ function ExpansaoCardPage({ anotacoes, setAnotacoes }: Props) {
 
         <Button
           variant="outlined"
+          onClick={() => abrirPerguntaEdicao(true)}
         >
           <ModeEditIcon />
         </Button>
       </div>
 
-      <Modal
-        open={validarDelete}
-        onClose={() => abrirPerguntaDelete(false)}
-        keepMounted
-      >
-        <div className={styles["validar-delete"]}>
-          <h4>Deseja mesmo deletar anotação?</h4>
-          <Button
-            variant="contained"
-            color="warning"
-            onClick={() => { excluirAnotacao(cardSelecionado.id);  irParaHome()}}
-          >
-            <DeleteIcon />
-          </Button>
-        </div>
-      </Modal>
+      <ValidarModal
+        color="warning"
+        texto="Deseja mesmo deletar anotação?"
+        irPraHome={irParaHome}
+        funcaoPrincipal={excluirAnotacao}
+        icone={<DeleteIcon />}
+        estadoModal={validarDelete}
+        abrirOUfechar={abrirPerguntaDelete}
+        idAnotacao={cardSelecionado.id}
+      />
+
+      <ValidarModal
+        color="primary"
+        texto="Deseja mesmo editar anotação?"
+        funcaoPrincipal={irEditarAnotacao}
+        icone={<ModeEditIcon />}
+        estadoModal={validarEdicao}
+        abrirOUfechar={abrirPerguntaEdicao}
+        idAnotacao={cardSelecionado.id}
+      />
+
     </>
   );
 }

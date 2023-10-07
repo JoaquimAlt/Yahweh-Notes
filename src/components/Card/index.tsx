@@ -23,7 +23,7 @@ function Card({ anotacao }: Props) {
             <h3 className={styles.livro}>{anotacao.livro}</h3>
             <div className={styles["box-2"]}>
                 <strong>{anotacao.capitulo}:{anotacao.versiculo}</strong>
-                <p style={{ wordWrap: 'break-word' }}>
+                <p>
                     {anotacao.anotacoes !== undefined && anotacao.referencia.length < 100
                         ? limitarTexto(anotacao.anotacoes, 120)
                         : anotacao.anotacoes !== undefined ? limitarTexto(anotacao.anotacoes, 40) : ''}

@@ -15,6 +15,14 @@ function Rotas() {
     localStorage.setItem('anotacoes', JSON.stringify([...anotacoes, anotacao]));
   }
 
+  function editarAnotacao(id: string, novosDados: IVersiculo) {
+    const novaAnotacoes = anotacoes.map((anotacao) =>
+      anotacao.id === id ? { ...anotacao, ...novosDados } : anotacao
+    );
+    setAnotacoes(novaAnotacoes);
+    localStorage.setItem('anotacoes', JSON.stringify(novaAnotacoes));
+  }
+
   useEffect(() => {
     // Carregue as anotações salvas no localStorage ao montar o componente
     const anotacoesSalvas = localStorage.getItem('anotacoes');
@@ -30,6 +38,10 @@ function Rotas() {
         <Route
            path="/form"
            element={<FormularioPage addListaAnotacoes={addListaAnotacoes} />}
+        />
+        <Route
+           path="/form/:id"
+           element={<FormularioPage editarAnotacao={editarAnotacao} anotacoes={anotacoes} addListaAnotacoes={addListaAnotacoes} />}
         />
         <Route
            path="/"

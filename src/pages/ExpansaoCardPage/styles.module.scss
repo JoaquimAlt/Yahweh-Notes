@@ -1,7 +1,7 @@
 .detalhes-card {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    max-width: 60%;
     border-radius: 30px;
     margin-block: 30px;
     margin-inline: auto;
@@ -9,6 +9,7 @@
     gap: 10px;
     background-color: #FAF1E4;
     padding: 30px;
+    word-wrap: break-word;
 }
 
 .referencia {
@@ -66,25 +67,4 @@
 .botoes-container button {
     min-width: 0px;
     padding: 10px;
-}
-
-.validar-delete {
-    padding: 20px 20px;
-    background-color: #ffffff;
-    display: grid;
-    gap: 50px;
-    margin-top: 22%;
-    margin-inline: auto;
-    width: 20%;
-    border-radius: 10px;
-}
-
-.validar-delete h4 {
-    font-size: 18px;
-}
-
-.validar-delete button {
-    padding: 10px;
-    width: 10px;
-    justify-self: end;
 }

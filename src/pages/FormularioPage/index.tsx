@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import IVersiculo from "../../types/Versiculo";
 import Versiculo from "../../components/Versiculo";
 import Button from "@mui/material/Button";
@@ -8,12 +8,17 @@ import styles from "./styles.module.scss";
 import Modal from "@mui/material/Modal";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 
 interface Props {
   addListaAnotacoes: (anotacao: IVersiculo) => void;
+  anotacoes?: IVersiculo[],
+  editarAnotacao?: (id: string, novosDados: IVersiculo) => void
 }
 
-function FormularioPage({ addListaAnotacoes }: Props) {
+function FormularioPage({ editarAnotacao, addListaAnotacoes, anotacoes }: Props) {
+  const { id } = useParams();
+
   const [sucesso, setSucesso] = useState(false);
 
   const abrirPopUp = () => setSucesso(true);
@@ -39,7 +44,12 @@ function FormularioPage({ addListaAnotacoes }: Props) {
 
     // Defina um temporizador para enviar o formulário após um breve atraso (por exemplo, 1 segundo)
     setTimeout(() => {
-      addListaAnotacoes(texto);
+      if (editarAnotacao && anotacoes && id !== undefined) {
+        editarAnotacao(id, texto);
+      }
+      else {
+        addListaAnotacoes(texto);
+      }
 
       setTexto({
         id: "",
@@ -50,16 +60,28 @@ function FormularioPage({ addListaAnotacoes }: Props) {
         anotacoes: "",
       });
 
-      
+
       setSucesso(false);
       irParaHome();
-    }, 2000); 
+    }, 2000);
   }
+
+  useEffect(() => {
+    if (id && anotacoes) {
+      const anotacaoPraEditar = anotacoes.find((anotacao) => anotacao.id === id);
+
+      if (anotacaoPraEditar) {
+        setTexto({
+          ...anotacaoPraEditar,
+        })
+      }
+    }
+  }, [id, anotacoes]);
 
   return (
     <>
       <form onSubmit={enviarTexto} className={styles["form-page"]}>
-        <Versiculo setTexto={setTexto} />
+        <Versiculo anotacoes={anotacoes} setTexto={setTexto} />
 
         {texto.referencia ? (
           <div className={styles["anotacoes-form"]}>
@@ -73,7 +95,7 @@ function FormularioPage({ addListaAnotacoes }: Props) {
               value={texto?.anotacoes || ""}
               onChange={(e) => setTexto({ ...texto, anotacoes: e.target.value })}
             />
-            
+
             <Button
               type="submit"
               variant="contained"

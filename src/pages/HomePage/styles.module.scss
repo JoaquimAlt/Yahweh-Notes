@@ -34,3 +34,9 @@
     color: #618264;
     cursor: pointer;
 }
+
+@media (min-width: 300px) and (max-width: 800px) {
+    .sem-cards {
+        max-width: 50%;
+    }
+}

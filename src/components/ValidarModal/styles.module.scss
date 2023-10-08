@@ -18,3 +18,10 @@
     width: 10px;
     justify-self: end;
 }
+
+@media (min-width: 300px) and (max-width: 800px) {
+    .validar-modal {
+        width: 40%;
+        margin-top: 40%;
+    }
+}

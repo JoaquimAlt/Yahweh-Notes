@@ -68,3 +68,15 @@
     min-width: 0px;
     padding: 10px;
 }
+
+@media (min-width: 300px) and (max-width: 800px) {
+    .referencia {
+        font-size: 14px;
+    }
+    .referencia h2 {
+        font-size: 16px;
+    }
+    .detalhes-card p {
+        font-size: 18px;
+    }
+}

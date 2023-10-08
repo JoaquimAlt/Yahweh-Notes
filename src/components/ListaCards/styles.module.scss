@@ -27,3 +27,15 @@
 .filtro-select div {
     background-color: #F4F4F4;
 }
+
+@media (min-width: 300px) and (max-width: 800px) {
+    .listagem {
+        margin: 5%;
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .cards {
+        padding: 30px 10px;
+    }
+}

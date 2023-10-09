@@ -79,4 +79,14 @@
     .detalhes-card p {
         font-size: 18px;
     }
+    .botoes-container  {
+        right: 10px;
+        bottom: 10px;
+        padding: 15px 12px;
+        border-radius: 5px;
+    }
+    .botoes-container button {
+        min-width: 0px;
+        padding: 5px;
+    }
 }

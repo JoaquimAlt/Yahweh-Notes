@@ -9,6 +9,7 @@ import Modal from "@mui/material/Modal";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
+import HelpButton from "../../components/BotaoHelp";
 
 interface Props {
   addListaAnotacoes: (anotacao: IVersiculo) => void;
@@ -115,6 +116,9 @@ function FormularioPage({ editarAnotacao, addListaAnotacoes, anotacoes }: Props)
         ) : (
           ""
         )}
+
+        <HelpButton/>
+
       </form>
     </>
   );
